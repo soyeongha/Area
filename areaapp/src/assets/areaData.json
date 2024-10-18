@@ -1,0 +1,13 @@
+[
+    { "id": 1, "name": "구역 A", "active": true },
+    { "id": 2, "name": "구역 B", "active": false },
+    { "id": 3, "name": "구역 C", "active": false },
+    { "id": 4, "name": "구역 D", "active": true },
+    { "id": 5, "name": "구역 E", "active": true },
+    { "id": 6, "name": "구역 F", "active": true },
+    { "id": 7, "name": "구역 G", "active": false },
+    { "id": 8, "name": "구역 H", "active": true },
+    { "id": 9, "name": "구역 I", "active": false },
+    { "id": 10, "name": "구역 J", "active": true }
+]
+  
