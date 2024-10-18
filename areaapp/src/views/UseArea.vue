@@ -152,6 +152,7 @@ export default {
         this.showModal = true;
       }
     },
+
     
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;  // 사이드바 열림/닫힘 상태 전환
