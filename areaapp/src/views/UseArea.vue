@@ -14,7 +14,7 @@
         <li v-for="month in months" :key="month.id">
           <button style="font-size: 15px;"
             :disabled="month.status === '결제완료'"
-            @click="navigateToSchedule(month)"
+            @click="handleMonthClick(month)"
             :class="month.status"
           >
             {{ month.name }}
@@ -110,6 +110,20 @@ export default {
       });
     },
     
+    handleMonthClick(month) {
+      if (month.status === "결제완료") {
+        // 결제 완료된 월일 경우 모달을 띄움
+        this.modalMessage = `${month.name}은 결제완료되어 수정할 수 없습니다.`;
+        this.showModal = true;
+      } else if (month.status === "진행중") {
+        // 진행중 상태일 경우에만 페이지 이동
+        const monthNumber = month.id;
+        this.$router.push({ 
+          name: "AreaSchedule", 
+          params: { year: this.currentYear, month: monthNumber },
+        });
+      }
+    },
     
     closeModal() {
       this.showModal = false; // 모달 닫기
@@ -148,11 +162,10 @@ export default {
       if (this.months[month - 1].status === "진행중") {
         this.$router.push({ name: 'AreaSchedule', params: { month } });
       } else {
-        this.modalMessage = `선택하신 ${month}월은 ${this.months[month - 1].status} 상태로 수정 할 수 없습니다.`;
+        this.modalMessage = `선택하신 ${month}월은 ${this.months[month - 1].status} 상태입니다.`;
         this.showModal = true;
       }
     },
-
     
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;  // 사이드바 열림/닫힘 상태 전환
