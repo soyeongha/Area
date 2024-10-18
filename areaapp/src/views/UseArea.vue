@@ -161,8 +161,9 @@ export default {
     navigateToSchedule(month) {
       if (this.months[month - 1].status === "진행중") {
         this.$router.push({ name: 'AreaSchedule', params: { month } });
+        this.$router.push(`/schedule/${month}`); // 선택된 월로 이동
       } else {
-        this.modalMessage = `선택하신 ${month}월은 ${this.months[month - 1].status} 상태입니다.`;
+        this.modalMessage = `선택하신 ${month}월은 ${this.months[month - 1].status} 상태로 수정할 수 없습니다.`;
         this.showModal = true;
       }
     },
